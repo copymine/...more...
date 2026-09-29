@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>...more...</title>
+<style>
+body {
+background: #000000;
+color: #ffffff;
+font-family: Arial;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+font-size: 16px;
+}
+#buttonzone {
+background: #000000;
+color: #ffffff;
+font-family: Arial;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+font-size: 16px;
+}
+.title {
+text-align: center;
+width: 100%;
+}
+.nbutton {
+margin:1px;
+border-radius: 10px;
+background: #2f2f2f;
+padding: 6px;
+color: #ffffff;
+border: none;
+}
+.nbutton:hover {
+background: #3f3f3f;
+}
+.nbutton:active {
+background: #5f5f5f;
+}
+</style>
+</head>
+<body>
+<h1 class="title">...more...</h1><br>
+<input id="queryh" onkeyup="queryHTML()">
+<div id="buttonzone"></div>
+<script>
+function f(url) {
+window.location.href = url;
+}
+
+
+  
+let links = [
+"https://google.com",
+"https://mail.google.com",
+"https://calendar.google.com/calendar/u/0/r/month",
+"https://chat.google.com",
+"https://meet.google.com",
+"https://drive.google.com",
+"https://docs.google.com",
+"https://notepad.js.org",
+"https://scratch.mit.edu",
+"https://jsfiddle.net",
+"https://codepen.io",
+"https://stackblitz.com",
+]
+let linksname = [
+"Google",
+"Google Mail",
+"Google Calendar",
+"Google Chat",
+"Google Meet",
+"Google Drive",
+"Google Docs",
+"Notepad.js.org",
+"Scratch",
+"JSFiddle",
+"CodePen",
+"StackBlitz"
+]
+
+
+let query = ""
+function queryHTML() {
+query = document.getElementById("queryh").value
+show()
+}
+function show() {
+document.getElementById("buttonzone").innerHTML = ""
+links.forEach((link, index) => {
+if (query === "" || link.includes(query) || linksname[index].includes(query)) {
+let buttonzone = document.getElementById("buttonzone");
+let newbutton = document.createElement("button");
+newbutton.classList.add("nbutton");
+newbutton.onclick = function() {f(link)}
+newbutton.textContent = linksname[index]
+buttonzone.append(newbutton)
+}
+})
+}
+show();
+</script>
+</body>
+</html>
+
