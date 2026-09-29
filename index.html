@@ -113,7 +113,7 @@ show()
 function show() {
 document.getElementById("buttonzone").innerHTML = ""
 links.forEach((link, index) => {
-if (query === "" || link.includes(query) || linksname[index].includes(query)) {
+if (query === "" || link.hostname.includes(query) || linksname[index].includes(query)) {
 let buttonzone = document.getElementById("buttonzone");
 let newbutton = document.createElement("button");
 newbutton.classList.add("nbutton");
