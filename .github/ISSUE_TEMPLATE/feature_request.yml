@@ -1,0 +1,25 @@
+name: New Site!
+description: Add a new site
+title: "[NEW SITE]: "
+labels: ["enhancement","newsite"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! Please provide as much detail as possible to help us understand your vision.
+  - type: textarea
+    id: url
+    attributes:
+      label: URL
+      description: Place the URL of your requested site here...
+      placeholder: https://example.com...
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: Place the reason you want this site added here...
+      placeholder: Why...
+    validations:
+      required: false
