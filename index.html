@@ -74,7 +74,7 @@ window.location.href = url;
 let links = [
 "https://google.com",
 "https://mail.google.com",
-"https://calendar.google.com/calendar/u/0/r/month",
+"https://calendar.google.com",
 "https://chat.google.com",
 "https://meet.google.com",
 "https://drive.google.com",
@@ -91,6 +91,7 @@ let links = [
 "https://stackblitz.com",
 "https://gchq.github.io/CyberChef/",
 "https://orteil.dashnet.org/cookieclicker/",
+"https://neal.fun",
 "https://excalidraw.com",
 ]
 let linksname = [
@@ -113,6 +114,7 @@ let linksname = [
 "StackBlitz",
 "CyberChef",
 "Cookie Clicker",
+"Neal.fun"
 "Excalidraw",
 ]
 
@@ -122,18 +124,32 @@ function queryHTML() {
 query = document.getElementById("queryh").value
 show()
 }
-function show() {
+
+let results = []
+let resultsname = []
+function search() {
+results = []
+resultsname = []
 document.getElementById("buttonzone").innerHTML = ""
 links.forEach((link, index) => {
 if (query === "" || new URL(link).hostname.includes(query) || linksname[index].includes(query)) {
+results[results.length] = link
+resultsname[resultsname.length] = linksname[index]
+}
+})
+}
+function buttons() {
+results.forEach((item,index) => {
 let buttonzone = document.getElementById("buttonzone");
 let newbutton = document.createElement("button");
 newbutton.classList.add("nbutton");
-newbutton.onclick = function() {f(link)}
-newbutton.textContent = linksname[index]
+newbutton.onclick = function() {f(item)}
+newbutton.textContent = resultsname[index]
 buttonzone.append(newbutton)
-}
 })
+}
+function show() {
+search(); buttons()
 }
 show();
 </script>
